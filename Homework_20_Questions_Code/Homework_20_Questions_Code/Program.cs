@@ -21,7 +21,7 @@
             Console.WriteLine("Think of something, and I'll try to guess it.");
 
 
-
+            
 
             // root of tree
             TreeNode root = new TreeNode("Is it an animal?");
@@ -40,6 +40,29 @@
             root.Right = new TreeNode("Is it a vehicle?");
             root.Right.Left = new TreeNode("Is it a car?");
             root.Right.Right = new TreeNode("Is it a building?");
+        }
+
+        //added in the Traverse of the Tree
+        static void TraverseTree(TreeNode node)
+        {
+            while (node != null)
+            {
+                Console.WriteLine(node.Data);
+                Console.Write("Yes or No?");
+                string answer = Console.ReadLine().ToLower();
+
+                if (answer == "yes")
+                {
+                    node = node.Left;
+                } else if (answer == "no")
+                {
+                    node = node.Right;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Plese enter 'Yes' or 'No'.");
+                }
+            }
         }
     }
 }
