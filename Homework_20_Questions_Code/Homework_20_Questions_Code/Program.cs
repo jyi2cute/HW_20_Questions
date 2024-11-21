@@ -33,7 +33,7 @@
             root.Left.Left.Left = new TreeNode("It's a dog!");
             root.Left.Left.Right = new TreeNode("It's a horse!");
             root.Left.Right = new TreeNode("Does it fly?");
-            root.Left.Right.Left = new TreeNode("It's a dog!");
+            root.Left.Right.Left = new TreeNode("It's a bird!");
             root.Left.Right.Right = new TreeNode("It's a fish!");
 
             // right side of tree (no)
