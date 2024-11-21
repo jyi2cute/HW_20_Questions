@@ -47,7 +47,7 @@
             {
                 TraverseTree(root);
 
-                Console.WriteLine("\nWould you like to play again? Yes or No?");
+                Console.WriteLine("\nWould you like to play again? yes or no?");
                 string answer = Console.ReadLine().ToLower();
 
                 playAgain = answer == "yes";
@@ -62,7 +62,7 @@
             while (node != null)
             {
                 Console.WriteLine(node.Data);
-                Console.Write("Yes or No?");
+                Console.Write("yes or no?");
                 string answer = Console.ReadLine().ToLower();
 
                 if (answer == "yes")
@@ -74,7 +74,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Plese enter 'Yes' or 'No'.");
+                    Console.WriteLine("Invalid input. Plese enter 'yes' or 'no'.");
                 }
             }
         }
