@@ -2,9 +2,44 @@
 {
     internal class Program
     {
+        class TreeNode
+        {
+            public TreeNode Left { get; set; }
+            public TreeNode Right { get; set; }
+            public string Data { get; set; }
+
+            public TreeNode(string data)
+            {
+                Left = null;
+                Right = null;
+                Data = data;
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the 20 Questions Game!");
+            Console.WriteLine("Think of something, and I'll try to guess it.");
+
+
+
+
+            // root of tree
+            TreeNode root = new TreeNode("Is it an animal?");
+            // if the answer is yes, move left. If the answer is no, move right
+
+            // left side of tree (yes)
+            root.Left = new TreeNode("Does it have four legs?");
+            root.Left.Left = new TreeNode("Is it a pet?");
+            root.Left.Left.Left = new TreeNode("It's a dog!");
+            root.Left.Left.Right = new TreeNode("It's a horse!");
+            root.Left.Right = new TreeNode("Does it fly?");
+            root.Left.Right.Left = new TreeNode("It's a dog!");
+            root.Left.Right.Right = new TreeNode("It's a fish!");
+
+            // right side of tree (no)
+            root.Right = new TreeNode("Is it a vehicle?");
+            root.Right.Left = new TreeNode("Is it a car?");
+            root.Right.Right = new TreeNode("Is it a building?");
         }
     }
 }
