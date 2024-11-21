@@ -40,6 +40,20 @@
             root.Right = new TreeNode("Is it a vehicle?");
             root.Right.Left = new TreeNode("Is it a car?");
             root.Right.Right = new TreeNode("Is it a building?");
+
+            //repeating, multiple rounds
+            bool playAgain;
+            do
+            {
+                TraverseTree(root);
+
+                Console.WriteLine("\nWould you like to play again? Yes or No?");
+                string answer = Console.ReadLine().ToLower();
+
+                playAgain = answer == "yes";
+            } while (playAgain);
+
+            Console.WriteLine("Thanks for playing!");
         }
 
         //added in the Traverse of the Tree
