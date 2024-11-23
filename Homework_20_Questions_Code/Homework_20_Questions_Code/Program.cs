@@ -1,4 +1,5 @@
-﻿namespace Homework_20_Questions_Code
+﻿// Program that uses a tree to create a 20 questions game
+namespace Homework_20_Questions_Code
 {
     internal class Program
     {
@@ -19,9 +20,6 @@
         {
             Console.WriteLine("Welcome to the 20 Questions Game!");
             Console.WriteLine("Think of something, and I'll try to guess it.");
-
-
-            
 
             // root of tree
             TreeNode root = new TreeNode("Is it an animal?");
@@ -57,25 +55,91 @@
         }
 
         //added in the Traverse of the Tree
+        //learning functionallity
         static void TraverseTree(TreeNode node)
         {
+
+            //To keep track or the parent 
+            TreeNode parent = null;
+            bool isLeft = false;
+
+            //run until nodes run out
             while (node != null)
             {
-                Console.WriteLine(node.Data);
-                Console.Write("yes or no?");
-                string answer = Console.ReadLine().ToLower();
+                //conditional when both left and right are null, ends whilrloop and allows program to learn
+                if (node.Left == null && node.Right == null)
+                {
+                    Console.WriteLine(node.Data);
+                    Console.Write("Was the guess correct? (yes or no): ");
+                    string answer = Console.ReadLine().ToLower();
 
-                if (answer == "yes")
-                {
-                    node = node.Left;
-                } else if (answer == "no")
-                {
-                    node = node.Right;
+                    if (answer == "yes")
+                    {
+                        Console.WriteLine("Yay! Thanks for playing");
+                        return;
+                    }
+                    // user and add the question and answer
+                    else if (answer == "no")
+                    {
+                        Console.Write("What were you thinking of? ");
+                        string correctAnswer = Console.ReadLine();
+
+                        Console.Write("Please provide a yes/no question that distinguishes your answer from mine: ");
+                        string newQuestion = Console.ReadLine();
+
+                        Console.Write($"For your answer '{correctAnswer}', what would the correct response be to your question? (yes or no): ");
+                        string correctResponse = Console.ReadLine().ToLower();
+
+                        // Create new nodes
+                        TreeNode correctNode = new TreeNode($"It's a {correctAnswer}!");
+                        TreeNode incorrectNode = new TreeNode(node.Data);
+
+                        node.Data = newQuestion;
+                        if (correctResponse == "yes")
+                        {
+                            node.Left = correctNode;
+                            node.Right = incorrectNode;
+                        }
+                        else
+                        {
+                            node.Left = incorrectNode;
+                            node.Right = correctNode;
+                        }
+
+                        Console.WriteLine("Thank you for your input!");
+                        return;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Plese enter 'yes' or 'no'.");
+                    }
+
                 }
+
+                //else if either node have a value
                 else
                 {
-                    Console.WriteLine("Invalid input. Plese enter 'yes' or 'no'.");
+                    parent = node;
+                    Console.WriteLine(node.Data);
+                    Console.Write("yes or no?");
+                    string answer = Console.ReadLine().ToLower();
+                    if (answer == "yes")
+                    {
+                        node = node.Left;
+                        isLeft = true;
+                    }
+                    else if (answer == "no")
+                    {
+                        node = node.Right;
+                        isLeft = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Plese enter 'yes' or 'no'.");
+                    }
                 }
+
             }
         }
     }
