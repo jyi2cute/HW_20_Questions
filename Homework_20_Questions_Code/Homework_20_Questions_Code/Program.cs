@@ -41,6 +41,7 @@ namespace Homework_20_Questions_Code
                 InitializeTree(root);
             }
 
+            //repeating, multiple rounds
             // Play the game
             bool playAgain;
             do
@@ -57,6 +58,8 @@ namespace Homework_20_Questions_Code
             Console.WriteLine("Thanks for playing!");
         }
 
+        //added in the Traverse of the Tree
+        //learning functionallity
         // Traverse tree (existing game functionality)
         static void TraverseTree(TreeNode node)
         {
@@ -149,6 +152,7 @@ namespace Homework_20_Questions_Code
         static void InitializeTree(TreeNode root)
         {
             // Build the tree as needed (example initialization)
+            // left side of tree (yes)
             root.Left = new TreeNode("Does it have four legs?");
             root.Left.Left = new TreeNode("Is it a pet?");
             root.Left.Left.Left = new TreeNode("It's a dog!");
@@ -157,6 +161,7 @@ namespace Homework_20_Questions_Code
             root.Left.Right.Left = new TreeNode("It's a bird!");
             root.Left.Right.Right = new TreeNode("It's a fish!");
 
+            // right side of tree (no)
             root.Right = new TreeNode("Is it a vehicle?");
             root.Right.Left = new TreeNode("Is it a car?");
             root.Right.Right = new TreeNode("Is it a building?");
