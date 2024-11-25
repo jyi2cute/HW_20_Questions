@@ -63,14 +63,14 @@ namespace Homework_20_Questions_Code
         // Traverse tree (existing game functionality)
         static void TraverseTree(TreeNode node)
         {
-            //To keep track or the parent 
+            //To keep track of the parent 
             TreeNode parent = null;
             bool isLeft = false;
 
             //run until nodes run out
             while (node != null)
             {
-                //conditional when both left and right are null, ends whilrloop and allows program to learn
+                //conditional when both left and right are null, ends whileloop and allows program to learn
                 if (node.Left == null && node.Right == null)
                 {
                     Console.WriteLine(node.Data);
